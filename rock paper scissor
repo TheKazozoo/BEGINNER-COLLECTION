@@ -1,0 +1,36 @@
+import random
+emojis= {"r": "🪨", "p": "📜", "s": "✂️"}
+choices= ("r", "p", "s")
+
+def play_game():
+    players_choice= input("Rock, paper, scissors, shoot! (r/p/y): ").lower()
+    if players_choice not in choices:
+        print("Invalid choice")
+    computer_choice= random.choice(choices)
+
+    print(f"You chose {emojis[players_choice]}!")
+    print(f"Computer chose {emojis[computer_choice]}!")
+
+    if players_choice == computer_choice:
+        print("It is a tie!")
+    elif (players_choice == "r" and computer_choice == "s") or (players_choice == "s" and computer_choice == "p"):
+        print("You win!")
+    elif (players_choice == "s" and computer_choice == "r") or (players_choice == "p" and computer_choice == "s"):
+        print("You lose!")
+
+
+while True:
+    play_game()
+    print()
+
+    while True:
+        retry = input("Play again? (y/n):").lower()
+        if retry == "y":
+            break
+        elif retry == "n":
+            print("Thank you for playing!")
+            exit()
+        else:
+            print()
+            print("Invalid answer")
+            print()
